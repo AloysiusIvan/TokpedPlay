@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 
 const bodyParser = require('body-parser');
 require('dotenv').config();
@@ -24,6 +25,11 @@ app.use(
         extended: true
     })
 );
+
+app.use(express.static(path.join(__dirname, '../../client/build')));
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, '../../client/build', 'index.html'));
+});
 
 app.use(cors({
     origin: 'http://localhost:3000'
