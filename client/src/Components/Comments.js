@@ -72,7 +72,7 @@ export default function Comments(){
 
     const handleClick = async () => {
         try {
-            const response = await fetch(`http://localhost:3001/api/videos/${id}/comments`, {
+            const response = await fetch(`/api/videos/${id}/comments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ export default function Comments(){
     useEffect(() => {
         async function fetchComments() {
             try {
-                const response = await fetch(`http://localhost:3001/api/videos/${id}/comments`);
+                const response = await fetch(`/api/videos/${id}/comments`);
                 if(response.ok){
                     const data = await response.json();
                     setComments(data.comments);

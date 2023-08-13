@@ -13,7 +13,7 @@ export default function Products() {
     useEffect(() => {
         async function fetchProducts() {
             try {
-                const response = await fetch(`http://localhost:3001/api/videos/${id}/products`);
+                const response = await fetch(`/api/videos/${id}/products`);
                 if(response.ok){
                     const data = await response.json();
                     setProducts(data.products);

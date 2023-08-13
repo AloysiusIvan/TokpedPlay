@@ -6,7 +6,7 @@ export default function useFetchVideo(id) {
   useEffect(() => {
     async function fetchVideo() {
       try {
-        const response = await fetch(`http://localhost:3001/api/videos/${id}`);
+        const response = await fetch(`/api/videos/${id}`);
         const data = await response.json();
         setVideo(data);
       } catch (error) {
